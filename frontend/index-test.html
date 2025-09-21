@@ -1,1 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello! This is my test git project
+</body>
+</html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Clone the Git Repository
+Go to File → Import…
+Select Git → Projects from Git → Click Next.
+Choose Clone URI → Click Next.
+Enter the repository details:
+URI: Repository URL (e.g., https://github.com/username/repo.git)
+Host and Repository path will auto-fill.
+Enter Username/Password if required.
+Click Next, select the branch(es) you want → Next.
+Choose a local directory where the repo will be cloned → Next.
+
+
+
+
+Correct pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>SE</groupId>
+  <artifactId>HospitalMgmtSystem</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1</version>
+  <name>HospitalMgmtSystem Maven Webapp</name>
+  <url>https://github.com/yourusername/HospitalMgmtSystem</url>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>4.0.4</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>HospitalMgmtSystem</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+
+
+
+From cloned prject to our account
+git remote set-url origin https://github.com/yourusername/HospitalMgmtSystem.git
+git push -u origin main
+
+
+DEPENDENCIES
+<dependency>
+  <groupId>junit</groupId>
+  <artifactId>junit</artifactId>
+  <version>4.13.2</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>servlet-api</artifactId>
+  <version>2.5</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+  <groupId>jakarta.servlet</groupId>
+  <artifactId>jakarta.servlet-api</artifactId>
+  <version>4.0.1</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+  <groupId>javax.servlet.jsp</groupId>
+  <artifactId>jsp-api</artifactId>
+  <version>2.2</version>
+  <scope>provided</scope>
+</dependency>
+
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>jstl</artifactId>
+  <version>1.2</version>
+</dependency>
+
+
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>8.0.33</version>
+</dependency>
+
+
+
+//PLUGINS
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.11.0</version>
+  <configuration>
+    <release>21</release> <!-- or source/target -->
+  </configuration>
+</plugin>
+
+
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-war-plugin</artifactId>
+  <version>3.3.2</version>
+  <configuration>
+    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- for servlet 3+ -->
+    <warName>HospitalMgmtSystem</warName>
+  </configuration>
+</plugin>
+
+
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>3.2.5</version>
+</plugin>
+
+
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+  <configuration>
+    <url>http://localhost:8080/manager/text</url>
+    <server>TomcatServer</server>
+    <path>/HospitalMgmtSystem</path>
+  </configuration>
+</plugin>
+
+
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-clean-plugin</artifactId>
+  <version>3.2.0</version>
+</plugin>
+
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-install-plugin</artifactId>
+  <version>3.1.0</version>
+</plugin>
+
+
+mvn dependency:tree   # Show dependency tree
+mvn dependency:copy-dependencies
+
+
+
+
+
+
+
+
+# Git/GitHub Command Cheat Sheet
+
+### Repository Setup / Initialization
+
+| Command                | Purpose                                    |
+| ---------------------- | ------------------------------------------ |
+| git init             | Initialize a new Git repository locally    |
+| git clone <repo-url> | Clone a remote repository to local machine |
+| git status           | Show untracked, modified, and staged files |
+
+---
+
+### Staging & Committing
+
+| Command                       | Purpose                          |
+| ----------------------------- | -------------------------------- |
+| git add <file>              | Stage a specific file for commit |
+| git add .                   | Stage all changes for commit     |
+| git commit -m "message"     | Commit staged changes locally    |
+| git restore --staged <file> | Unstage a file                   |
+
+---
+
+### Tracking Files
+
+| Command          | Purpose                        |
+| ---------------- | ------------------------------ |
+| git add <file> | Track a new file               |
+| git status     | See tracked vs untracked files |
+
+---
+
+### Viewing Changes / Diffs
+
+| Command                | Purpose                                |
+| ---------------------- | -------------------------------------- |
+| git diff             | Show unstaged changes                  |
+| git diff --staged    | Show staged changes                    |
+| git show             | Show last commit changes               |
+| git show --name-only | Show file names changed in last commit |
+| git show --stat      | Show summary of changes in last commit |
+
+---
+
+### Viewing Commit History
+
+| Command                           | Purpose                                   |
+| --------------------------------- | ----------------------------------------- |
+| git log                         | Show full commit history                  |
+| git log --oneline               | Show compact commit history               |
+| git log --oneline --graph --all | Show commit history with branch structure |
+| git log -n 5                    | Show last 5 commits                       |
+
+---
+
+### Branching & Merging
+
+| Command                    | Purpose                            |
+| -------------------------- | ---------------------------------- |
+| git branch               | List local branches                |
+| git branch -r            | List remote branches               |
+| git checkout -b <branch> | Create & switch to new branch      |
+| git checkout <branch>    | Switch to existing branch          |
+| git merge <branch>       | Merge a branch into current branch |
+
+---
+
+### Remote Repositories
+
+| Command                            | Purpose                              |
+| ---------------------------------- | ------------------------------------ |
+| git remote add origin <repo-url> | Add a remote repository              |
+| git fetch origin                 | Fetch remote updates without merging |
+| git pull                         | Fetch and merge remote changes       |
+| git push origin <branch>         | Push local branch to remote          |
+| git push -u origin <branch>      | Push and set upstream                |
+
+---
+
+### Fork & Pull Request Workflow
+
+| Command / Action                    | Purpose                                     |
+| ----------------------------------- | ------------------------------------------- |
+| Fork on GitHub                      | Create your own copy of the repo            |
+| git clone <your-fork-url>         | Clone your fork locally                     |
+| git checkout -b feature/<name>    | Create branch for new feature               |
+| git add . → git commit -m "msg" | Stage & commit changes                      |
+| git push origin feature/<name>    | Push branch to fork                         |
+| Create Pull Request on GitHub       | Request to merge changes into original repo |
+
+---
+
+### Comparing Local & Remote
+
+| Command                     | Purpose                                          |
+| --------------------------- | ------------------------------------------------ |
+| git fetch origin          | Fetch remote updates                             |
+| git diff main origin/main | Show differences between local and remote branch |
+| git log origin/main..main | Show local commits not on remote                 |
+| git log main..origin/main | Show remote commits not on local                 |
+| git status                | Show ahead/behind counts                         |
+
+---
+
+### Untracked / New Files
+
+| Command                    | Purpose                                             |
+| -------------------------- | --------------------------------------------------- |
+| rm <file> / del <file> | Delete untracked file                               |
+| git restore <file>       | Restore file to last committed state (tracked only) |
+
+
+
+
+
+
+DOCKER
+# 📝 Part 1: Dockerfile for Your App
+
+👉 Since your project builds a WAR file, your Dockerfile should look like this (inside your project root folder):
+
+dockerfile
+# Use official Tomcat base image
+FROM tomcat:9.0-jdk11
+
+# Clean default webapps (optional, avoids Tomcat sample apps)
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+# Copy your WAR file from Maven build into Tomcat
+# Use wildcard so you don’t need to update version manually
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+
+# Expose Tomcat’s default port
+EXPOSE 8080
+
+# Start Tomcat when the container launches
+CMD ["catalina.sh", "run"]
+
+### Steps:
+
+1. Run Maven first:
+
+   bash
+   mvn clean package
+   
+
+   → generates your target/xxx.war.
+
+2. Build Docker image:
+
+   bash
+   docker build -t hospital-app .
+   
+
+3. Run container (map host 9090 → container 8080):
+
+   bash
+   docker run -d -p 9090:8080 --name hospital-container hospital-app
+   
+
+4. Open your app:
+
+   
+   http://localhost:9090/
+   
+
+---
+
+
+# 📝 Part 2: Question 4 – Redis Container
+
+Redis is separate, so you don’t need it in your Dockerfile. You just run it as another container.
+
+### Step 1: Pull Redis image
+
+bash
+docker pull redis:latest
+
+
+### Step 2: Run Redis container
+
+bash
+docker run -d --name my-redis -p 6379:6379 redis:latest
+
+
+* -d → detached
+* --name my-redis → easy to reference
+* -p 6379:6379 → maps Redis port
+
+### Step 3: Verify container is running
+
+bash
+docker ps
+
+
+Expected to see something like:
+
+
+CONTAINER ID   IMAGE          COMMAND                  STATUS        PORTS
+abcd1234efgh   redis:latest   "docker-entrypoint..."   Up 10 sec     0.0.0.0:6379->6379/tcp
+
+
+### Step 4: Test Redis connection
+
+Run Redis CLI inside the container:
+
+bash
+docker exec -it my-redis redis-cli ping
+
+
+Output should be:
+
+
+PONG
+
+Step 6: (Optional) Push to Docker Hub
+
+Create a free account on Docker Hub
+.
+
+In your terminal, login:
+
+docker login
+
+
+Tag your image with your username:
+
+docker tag hospital-app yourusername/hospital-app:1.0
+
+
+Push it:
+
+docker push yourusername/hospital-app:1.0
+
+
+Now anyone can pull your app with:
+
+docker pull yourusername/hospital-app:1.0
